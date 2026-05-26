@@ -15,6 +15,7 @@
 		7F7C4F1A2F8EF9A0002102C0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C4F192F8EF9A0002102C0 /* WidgetKit.framework */; };
 		7F7C4F1C2F8EF9A0002102C0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C4F1B2F8EF9A0002102C0 /* SwiftUI.framework */; };
 		7F7C4F2D2F8EF9A2002102C0 /* NeuroLockWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7F7C4F182F8EF9A0002102C0 /* NeuroLockWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DD76646C2FC5D4F000EEDB9F /* NeuroLockIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = DD76646B2FC5D4F000EEDB9F /* NeuroLockIcon.icon */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		7F7C4F192F8EF9A0002102C0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		7F7C4F1B2F8EF9A0002102C0 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		7F7C4F322F8EF9CE002102C0 /* NeuroLockWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NeuroLockWidgetExtension.entitlements; sourceTree = "<group>"; };
+		DD76646B2FC5D4F000EEDB9F /* NeuroLockIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = NeuroLockIcon.icon; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -240,6 +242,7 @@
 				7F7C4F1D2F8EF9A0002102C0 /* NeuroLockWidget */,
 				7F7C4EF02F8EF445002102C0 /* Frameworks */,
 				7F7C4EBF2F8EED63002102C0 /* Products */,
+				DD76646B2FC5D4F000EEDB9F /* NeuroLockIcon.icon */,
 			);
 			sourceTree = "<group>";
 		};
@@ -469,6 +472,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD76646C2FC5D4F000EEDB9F /* NeuroLockIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,12 +709,12 @@
 		7F7C4EE02F8EED64002102C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = NeuroLockIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NeuroLock/NeuroLock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 32X549AP3T;
+				DEVELOPMENT_TEAM = 23TSKPYKJ5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -739,12 +743,12 @@
 		7F7C4EE12F8EED64002102C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = NeuroLockIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NeuroLock/NeuroLock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 32X549AP3T;
+				DEVELOPMENT_TEAM = 23TSKPYKJ5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -78,7 +78,7 @@ struct NeuroLockWidget: Widget {
         }
         .configurationDisplayName("NeuroLock")
         .description("Quickly toggle your focus session.")
-        .supportedFamilies([.systemSmall])
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 

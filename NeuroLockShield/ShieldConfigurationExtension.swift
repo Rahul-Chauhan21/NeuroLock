@@ -12,18 +12,37 @@ import UIKit
 class ShieldConfigurationExtension: ShieldConfigurationDataSource {
     
     override func configuration(shielding application: Application) -> ShieldConfiguration {
-        return createEscalatedConfiguration()
+        return handleShieldState()
     }
     
     override func configuration(shielding application: Application, in category: ActivityCategory) -> ShieldConfiguration {
-        return createEscalatedConfiguration()
+        return handleShieldState()
     }
     
     override func configuration(shielding webDomain: WebDomain) -> ShieldConfiguration {
-        return createEscalatedConfiguration()
+        return handleShieldState()
     }
     
     override func configuration(shielding webDomain: WebDomain, in category: ActivityCategory) -> ShieldConfiguration {
+        return handleShieldState()
+    }
+    
+    private func handleShieldState() -> ShieldConfiguration {
+        // FIX FOR SIMULATOR AND DEVICE RACE CONDITIONS:
+        if FocusShared.isBypassActive() {
+            // Return a completely transparent shield.
+            // This prevents the OS from tearing down the app process.
+            return ShieldConfiguration(
+                backgroundBlurStyle: .none,
+                backgroundColor: .clear,
+                icon: nil,
+                title: nil,
+                subtitle: nil,
+                primaryButtonLabel: nil,
+                secondaryButtonLabel: nil
+            )
+        }
+        
         return createEscalatedConfiguration()
     }
     
@@ -32,7 +51,7 @@ class ShieldConfigurationExtension: ShieldConfigurationDataSource {
         
         var title = "Impulse Check"
         var subtitle = "Is this a conscious choice, or just muscle memory?"
-        var primaryButtonLabel = "I'm choosing this (5m)"
+        var primaryButtonLabel = "I'm choosing this (15m)"
         var primaryButtonColor: UIColor = .systemBlue
         
         if level == 1 {
@@ -43,7 +62,7 @@ class ShieldConfigurationExtension: ShieldConfigurationDataSource {
         } else if level >= 2 {
             title = "Autopilot Detected"
             subtitle = "Your impulsive brain is in control. Manual override required in NeuroLock."
-            primaryButtonLabel = "Prove I'm in charge (Open NeuroLock)"
+            primaryButtonLabel = "Prove I'm in charge"
             primaryButtonColor = .systemRed
         }
         

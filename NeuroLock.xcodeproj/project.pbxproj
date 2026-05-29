@@ -15,6 +15,7 @@
 		7F7C4F1A2F8EF9A0002102C0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C4F192F8EF9A0002102C0 /* WidgetKit.framework */; };
 		7F7C4F1C2F8EF9A0002102C0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7C4F1B2F8EF9A0002102C0 /* SwiftUI.framework */; };
 		7F7C4F2D2F8EF9A2002102C0 /* NeuroLockWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7F7C4F182F8EF9A0002102C0 /* NeuroLockWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9A1B2C3D4E5F60000000000C /* NeuroLockMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9A1B2C3D4E5F600000000002 /* NeuroLockMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DD76646C2FC5D4F000EEDB9F /* NeuroLockIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = DD76646B2FC5D4F000EEDB9F /* NeuroLockIcon.icon */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,13 @@
 			remoteGlobalIDString = 7F7C4F172F8EF9A0002102C0;
 			remoteInfo = NeuroLockWidgetExtension;
 		};
+		9A1B2C3D4E5F60000000000D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7F7C4EB62F8EED63002102C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A1B2C3D4E5F600000000001;
+			remoteInfo = NeuroLockMonitor;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -64,6 +72,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				7F7C4F2D2F8EF9A2002102C0 /* NeuroLockWidgetExtension.appex in Embed Foundation Extensions */,
+				9A1B2C3D4E5F60000000000C /* NeuroLockMonitor.appex in Embed Foundation Extensions */,
 				7F7C4F0F2F8EF79A002102C0 /* NeuroLockShield.appex in Embed Foundation Extensions */,
 				7F7C4EFA2F8EF446002102C0 /* NeuroLockAction.appex in Embed Foundation Extensions */,
 			);
@@ -84,6 +93,7 @@
 		7F7C4F192F8EF9A0002102C0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		7F7C4F1B2F8EF9A0002102C0 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		7F7C4F322F8EF9CE002102C0 /* NeuroLockWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NeuroLockWidgetExtension.entitlements; sourceTree = "<group>"; };
+		9A1B2C3D4E5F600000000002 /* NeuroLockMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NeuroLockMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD76646B2FC5D4F000EEDB9F /* NeuroLockIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = NeuroLockIcon.icon; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +140,20 @@
 			);
 			target = 7F7C4F172F8EF9A0002102C0 /* NeuroLockWidgetExtension */;
 		};
+		9A1B2C3D4E5F60000000000A /* Exceptions for "NeuroLockMonitor" folder in "NeuroLockMonitor" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9A1B2C3D4E5F600000000001 /* NeuroLockMonitor */;
+		};
+		9A1B2C3D4E5F60000000000B /* Exceptions for "NeuroLock" folder in "NeuroLockMonitor" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				NeuroLockShared.swift,
+			);
+			target = 9A1B2C3D4E5F600000000001 /* NeuroLockMonitor */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -139,6 +163,7 @@
 				7F7C4F3A2F8EFE75002102C0 /* Exceptions for "NeuroLock" folder in "NeuroLockAction" target */,
 				7F7C4F3B2F8EFE75002102C0 /* Exceptions for "NeuroLock" folder in "NeuroLockShield" target */,
 				7F7C4F3C2F8EFE75002102C0 /* Exceptions for "NeuroLock" folder in "NeuroLockWidgetExtension" target */,
+				9A1B2C3D4E5F60000000000B /* Exceptions for "NeuroLock" folder in "NeuroLockMonitor" target */,
 			);
 			path = NeuroLock;
 			sourceTree = "<group>";
@@ -175,6 +200,14 @@
 				7F7C4F2E2F8EF9A2002102C0 /* Exceptions for "NeuroLockWidget" folder in "NeuroLockWidgetExtension" target */,
 			);
 			path = NeuroLockWidget;
+			sourceTree = "<group>";
+		};
+		9A1B2C3D4E5F600000000003 /* NeuroLockMonitor */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9A1B2C3D4E5F60000000000A /* Exceptions for "NeuroLockMonitor" folder in "NeuroLockMonitor" target */,
+			);
+			path = NeuroLockMonitor;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -227,6 +260,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9A1B2C3D4E5F600000000005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -240,6 +280,7 @@
 				7F7C4EF32F8EF446002102C0 /* NeuroLockAction */,
 				7F7C4F082F8EF79A002102C0 /* NeuroLockShield */,
 				7F7C4F1D2F8EF9A0002102C0 /* NeuroLockWidget */,
+				9A1B2C3D4E5F600000000003 /* NeuroLockMonitor */,
 				7F7C4EF02F8EF445002102C0 /* Frameworks */,
 				7F7C4EBF2F8EED63002102C0 /* Products */,
 				DD76646B2FC5D4F000EEDB9F /* NeuroLockIcon.icon */,
@@ -255,6 +296,7 @@
 				7F7C4EEF2F8EF445002102C0 /* NeuroLockAction.appex */,
 				7F7C4F042F8EF79A002102C0 /* NeuroLockShield.appex */,
 				7F7C4F182F8EF9A0002102C0 /* NeuroLockWidgetExtension.appex */,
+				9A1B2C3D4E5F600000000002 /* NeuroLockMonitor.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -288,6 +330,7 @@
 				7F7C4EF92F8EF446002102C0 /* PBXTargetDependency */,
 				7F7C4F0E2F8EF79A002102C0 /* PBXTargetDependency */,
 				7F7C4F2C2F8EF9A2002102C0 /* PBXTargetDependency */,
+				9A1B2C3D4E5F60000000000E /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				7F7C4EC02F8EED63002102C0 /* NeuroLock */,
@@ -411,6 +454,28 @@
 			productReference = 7F7C4F182F8EF9A0002102C0 /* NeuroLockWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		9A1B2C3D4E5F600000000001 /* NeuroLockMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A1B2C3D4E5F600000000007 /* Build configuration list for PBXNativeTarget "NeuroLockMonitor" */;
+			buildPhases = (
+				9A1B2C3D4E5F600000000004 /* Sources */,
+				9A1B2C3D4E5F600000000005 /* Frameworks */,
+				9A1B2C3D4E5F600000000006 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				9A1B2C3D4E5F600000000003 /* NeuroLockMonitor */,
+			);
+			name = NeuroLockMonitor;
+			packageProductDependencies = (
+			);
+			productName = NeuroLockMonitor;
+			productReference = 9A1B2C3D4E5F600000000002 /* NeuroLockMonitor.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -441,6 +506,9 @@
 					7F7C4F172F8EF9A0002102C0 = {
 						CreatedOnToolsVersion = 26.4;
 					};
+					9A1B2C3D4E5F600000000001 = {
+						CreatedOnToolsVersion = 26.4;
+					};
 				};
 			};
 			buildConfigurationList = 7F7C4EB92F8EED63002102C0 /* Build configuration list for PBXProject "NeuroLock" */;
@@ -463,6 +531,7 @@
 				7F7C4EEE2F8EF445002102C0 /* NeuroLockAction */,
 				7F7C4F032F8EF79A002102C0 /* NeuroLockShield */,
 				7F7C4F172F8EF9A0002102C0 /* NeuroLockWidgetExtension */,
+				9A1B2C3D4E5F600000000001 /* NeuroLockMonitor */,
 			);
 		};
 /* End PBXProject section */
@@ -505,6 +574,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7F7C4F162F8EF9A0002102C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A1B2C3D4E5F600000000006 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -556,6 +632,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9A1B2C3D4E5F600000000004 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -583,6 +666,11 @@
 			isa = PBXTargetDependency;
 			target = 7F7C4F172F8EF9A0002102C0 /* NeuroLockWidgetExtension */;
 			targetProxy = 7F7C4F2B2F8EF9A2002102C0 /* PBXContainerItemProxy */;
+		};
+		9A1B2C3D4E5F60000000000E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A1B2C3D4E5F600000000001 /* NeuroLockMonitor */;
+			targetProxy = 9A1B2C3D4E5F60000000000D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1040,6 +1128,66 @@
 			};
 			name = Release;
 		};
+		9A1B2C3D4E5F600000000008 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NeuroLockMonitor/NeuroLockMonitor.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 32X549AP3T;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NeuroLockMonitor/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NeuroLockMonitor;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rc.NeuroLock.NeuroLockMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9A1B2C3D4E5F600000000009 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NeuroLockMonitor/NeuroLockMonitor.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 32X549AP3T;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NeuroLockMonitor/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NeuroLockMonitor;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rc.NeuroLock.NeuroLockMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1102,6 +1250,15 @@
 			buildConfigurations = (
 				7F7C4F302F8EF9A2002102C0 /* Debug */,
 				7F7C4F312F8EF9A2002102C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A1B2C3D4E5F600000000007 /* Build configuration list for PBXNativeTarget "NeuroLockMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A1B2C3D4E5F600000000008 /* Debug */,
+				9A1B2C3D4E5F600000000009 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

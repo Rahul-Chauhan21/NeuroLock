@@ -5,43 +5,75 @@
 //  Created by Rahul Chauhan on 4/15/26.
 //
 
-import ManagedSettings
 import Foundation
+import ManagedSettings
+import DeviceActivity
 
 class ShieldActionExtension: ShieldActionDelegate {
     
     override func handle(action: ShieldAction, for application: ApplicationToken, completionHandler: @escaping (ShieldActionResponse) -> Void) {
-        handleAction(action: action, completionHandler: completionHandler)
+        handleUniversalAction(action: action, completionHandler: completionHandler)
     }
-    
+
     override func handle(action: ShieldAction, for webDomain: WebDomainToken, completionHandler: @escaping (ShieldActionResponse) -> Void) {
-        handleAction(action: action, completionHandler: completionHandler)
+        handleUniversalAction(action: action, completionHandler: completionHandler)
     }
-    
+
     override func handle(action: ShieldAction, for category: ActivityCategoryToken, completionHandler: @escaping (ShieldActionResponse) -> Void) {
-        handleAction(action: action, completionHandler: completionHandler)
+        handleUniversalAction(action: action, completionHandler: completionHandler)
     }
-    
-    private func handleAction(action: ShieldAction, completionHandler: @escaping (ShieldActionResponse) -> Void) {
+
+    private func handleUniversalAction(
+        action: ShieldAction,
+        completionHandler: @escaping (ShieldActionResponse) -> Void
+    ) {
         switch action {
         case .primaryButtonPressed:
             let currentLevel = FocusShared.getEscalationLevel()
             
             if currentLevel < 2 {
-                // Increment escalation and allow bypass (15-minute default)
-                FocusShared.setEscalationLevel(currentLevel + 1)
-                completionHandler(.none)
+                do {
+                    let bypassUntil = Date().addingTimeInterval(15 * 60)
+                    try startBypassTimer(until: bypassUntil)
+                    
+                    FocusShared.setEscalationLevel(currentLevel + 1)
+                    FocusShared.beginBypass(until: bypassUntil)
+                    FocusShared.clearShields()
+                    
+                    completionHandler(.close)
+                } catch {
+                    FocusShared.endBypass()
+                    FocusShared.applySavedShields()
+                    completionHandler(.defer)
+                }
             } else {
-                // At Level 3 (level >= 2), don't allow bypass.
-                // The user must open the main app and do the protocol.
-                // We return .defer to keep the shield active.
                 completionHandler(.defer)
             }
+            
         case .secondaryButtonPressed:
-            // Dismiss (close the blocked app)
             completionHandler(.close)
+            
         default:
             completionHandler(.close)
         }
     }
+
+    private func startBypassTimer(until intervalEnd: Date) throws {
+        let center = DeviceActivityCenter()
+        let now = Date()
+        let calendar = Calendar.current
+        
+        let schedule = DeviceActivitySchedule(
+            intervalStart: calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now),
+            intervalEnd: calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: intervalEnd),
+            repeats: false
+        )
+        
+        center.stopMonitoring([.temporaryBypass])
+        try center.startMonitoring(.temporaryBypass, during: schedule)
+    }
+}
+
+extension DeviceActivityName {
+    static let temporaryBypass = DeviceActivityName("temporaryBypass")
 }
